@@ -62,10 +62,23 @@ class Item:
         return int(float(value))
 
     def __repr__(self):
+        """Вывод атрибутов класса"""
         return f"Item('{self.name}', {self.price}, {self.quantity})"
 
     def __str__(self):
+        """Вывод наименования товара"""
         return f'{self.name}'
+
+    def __add__(self, other):
+        """Сложение колличества товара"""
+        if not isinstance(other, Item):
+            raise ValueError('Сложение с другими аргументами класса запрещено')
+        return self.quantity + other.quantity
+
+
+
+
+
 
 
 
